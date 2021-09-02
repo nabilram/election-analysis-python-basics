@@ -57,6 +57,18 @@
 ##---- PRACTICE
 #libraries, data comes in key:value pairs
 counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
-for county in counties_dict:
+
+# 2 Ways to get KEYS
+# for county in counties_dict:
+#     print(county)
+# same as keys() - example
+for county in counties_dict.keys():
     print(county)
-# same as key() - example
+
+# Way to get VALUES
+for voters in counties_dict.values():
+    print(voters)
+
+# Way to get BOTH KEYS AND VALUES
+for county, voters in counties_dict.items():
+    print(f"The county of {county} has {voters} registered voters.")
