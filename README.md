@@ -11,7 +11,7 @@
     * Output .py file is found here:
     * Output .txt files is found here. 
     * Output terminal screenshot, see below:
-    
+
 ## Results of Election Audit
 
 ### Overall Vote Count
