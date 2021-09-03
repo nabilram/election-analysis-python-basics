@@ -4,12 +4,12 @@
 * Client is Colorado State and is asking for an automated election audit using Python
 * Deliverables outputs include:
     * Metrics on winning candidate: raw votes and percentage
-    * Metrucs on voting count per county: raw votes and percentage
+    * Metrics on voting count per county: raw votes and percentage
     * Outputs requested in .py format (for terminal applicability) and .txt (for plain text)
 * Relevant Files
-    * Client input files is found here:
-    * Output .py file is found here:
-    * Output .txt files is found here. 
+    * Client input files is found here: [Colorado_Election_Results](https://github.com/nabilram/election-analysis-python-basics/blob/main/resources/election_results.csv
+    * Output .py file is found here: [Election_Audit_Python_Script](https://github.com/nabilram/election-analysis-python-basics/blob/main/resources/python_practice.py)
+    * Output .txt file report is here: [Election_Audit_TXT_Report](https://github.com/nabilram/election-analysis-python-basics/blob/main/resources/analysis/election_analysis.txt) 
     * Output terminal screenshot, see below:
 
 ![Terminal_SS_Election_Audit](https://github.com/nabilram/election-analysis-python-basics/blob/main/resources/terminal_output.PNG)
