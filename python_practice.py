@@ -1,4 +1,4 @@
-# print("Smoke ______, everyday!")
+# git print("Smoke ______, everyday!")
 # # How many votes did you get?
 # my_votes = int(input("How many votes did you get in the election? "))
 # #  Total votes in the election
