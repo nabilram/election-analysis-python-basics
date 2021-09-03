@@ -12,6 +12,8 @@
     * Output .txt files is found here. 
     * Output terminal screenshot, see below:
 
+![Terminal_SS_Election_Audit](https://github.com/nabilram/election-analysis-python-basics/blob/main/resources/terminal_output.PNG)
+
 ## Results of Election Audit
 
 ### Overall Vote Count
@@ -35,8 +37,8 @@
 * Additional features and data points may assist the client in their efforts to increase voter turn out outside of Denver
     * Data points on voter's gender, ethnicity, age, and others will yield better voter-based analytics
 
-
-watch this python series before submission -- 
-https://www.youtube.com/watch?v=OFrLs22MDAw&list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm
-
-
+## Challenges and Lessons Learned
+* Python is a lot more intuitive in its auto-classification of obects (unlike VBA or C, for example)
+    * Assigning variable types and array lists names is not always necessary
+* Caution on elongating code with un necessary defnitions and declarations must be taken
+* Data analyst must familiarize themself with Python abilities so maximize its use
