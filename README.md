@@ -6,8 +6,12 @@
     * Metrics on winning candidate: raw votes and percentage
     * Metrucs on voting count per county: raw votes and percentage
     * Outputs requested in .py format (for terminal applicability) and .txt (for plain text)
-* Client has provided the following CSV data file for perusal: SOURCE CSV FILE
-
+* Relevant Files
+    * Client input files is found here:
+    * Output .py file is found here:
+    * Output .txt files is found here. 
+    * Output terminal screenshot, see below:
+    
 ## Results of Election Audit
 
 ### Overall Vote Count
@@ -26,9 +30,10 @@
 * CANDIDATE RESULT: Diana DeGette won with 73.8% of the votes, 272892 people voted for them
 
 ## Summary and Futher Application
-
-
-
+* Scaling up the code to accomodate wider scope (more counties, or even more states) is possible
+    * Application to more counties in next electoral cycle is advised for quality electoral checks and balances
+* Additional features and data points may assist the client in their efforts to increase voter turn out outside of Denver
+    * Data points on voter's gender, ethnicity, age, and others will yield better voter-based analytics
 
 
 watch this python series before submission -- 
