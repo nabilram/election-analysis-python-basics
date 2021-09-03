@@ -2,7 +2,6 @@
 
 # Load modules and packages.
 import csv
-import os
 
 # Initialize INPUTS: votes integer, candidate + county lists, votes per candidate library.
 all_votes = 0
@@ -13,11 +12,11 @@ per_cnty_votes = {}
 
 # Initialize OUPUTS: string + integer + float vars for TXT output reporting
 elect_results = ""
-winning_candidate = ""
-winning_count = 0
-winning_percentage = 0 
-largest_county = ""
-county_v_turnout = 0
+win_cddt = ""
+win_cnty = ""
+win_cddt_raw = 0
+win_cddt_px = 0
+win_cnty_px = 0 
 
 #Read CSV file using file path + with open + variable; read header; assign to data fram
 with open("resources/election_results.csv") as elect_r:
@@ -49,80 +48,63 @@ with open("resources/election_results.csv") as elect_r:
         else:
             per_cnty_votes[cnty_name] = per_cnty_votes[cnty_name] + 1
 
-print(f"{per_cddt_votes}")
-print(f"{per_cnty_votes}")
-
-# Create output TXT file using f and open + file path
+# Create output TXT file using f and open + file path and print and TXT election metrics
 with open("resources/analysis/election_analysis.txt","w") as output_txt:
-
-# Print the final vote count + per candidate + per county metrics
     elect_results = (
-        f"\nElection Results\n"
-        f"-------------------------\n"
+        f"\nOVERALL ELECTION METRICS\n"
+        f"-----------------------------------\n\n"
         f"TOTAL VOTES: {all_votes}\n"
-        f"-------------------------\n\n"
-        f"COUNTY VOTERS -- \n"
-        f"-------------------------\n"
-        f"{per_cnty_votes} \n"
-        f"-------------------------\n\n"
-        f"CANDIDATE VOTES -- \n"
-        f"-------------------------\n"
-        f"{per_cddt_votes} \n"
-        f"-------------------------\n\n")
+        f"PER COUNTY VOTE: {per_cnty_votes}\n"
+        f"PER CANDIDATE VOTE: {per_cddt_votes} \n\n")
     print(elect_results, end = "")
     output_txt.write(elect_results)
 
-# Calculate and print additional election metrics
+    # COUNTY RESULTS - county names, raw vote count, calculate turnout %, print to terminal, append TXT
+    # Set header
+    header2 = (f"COUNTY RESULTS SUMMARY\n-----------------------------------\n")
+    print(header2)
+    output_txt.write(header2)
+    
+    # Do calcs and outputs
+    for each_cnty in per_cnty_votes:
+        votes = per_cnty_votes[each_cnty]
+        now_ratio = float(votes) / float(all_votes) * 100
+        county_res = (f"{each_cnty} had {now_ratio:.1f}% of all votes ({votes:,}).\n")
+        print(county_res)
+        output_txt.write(county_res)
 
-#     # 6a: Write a for loop to get the county from the county dictionary.
+        # Decision tree on winning county % and raw vote count, declare winner.
+        if win_cnty_px < now_ratio:
+            win_cnty_px = now_ratio
+            win_cnty = each_cnty
+            win_cnty_votes = votes 
 
-#         # 6b: Retrieve the county vote count.
+    #Print county results to Terminal + append TXT
+    win_cnty_txt = (F"COUNTY RESULT: {win_cnty} had the the biggest voter turnout at {win_cnty_px:.1f}% with {win_cnty_votes} voters.\n")
+    print(win_cnty_txt)
+    output_txt.write(win_cnty_txt)
 
-#         # 6c: Calculate the percentage of votes for the county.
+    # CANDIDATE RESULTS - candidate names, raw vote count, calculate turnout %, print to terminal, append TXT
+    # Set header
+    header3 = (f"\nCANDIDATE RESULTS SUMMARY\n-----------------------------------\n")
+    print(header3)
+    output_txt.write(header3)
+    
+    # Do calc and outputs
+    for each_cddt in per_cddt_votes:
+        votes = per_cddt_votes[each_cddt]
+        now_ratio = float(votes) / float(all_votes) * 100
+        cddt_res = (f"{each_cddt} had {now_ratio:.1f}% of all votes ({votes:,}).\n")
+        print(cddt_res)
+        output_txt.write(cddt_res)
 
+        # Decision tree on winning candidate % and raw count, declare winner.
+        if (win_cddt_px < now_ratio and win_cddt_raw < votes):
+            win_cddt_px = now_ratio
+            win_cddt = each_cddt
+            win_cddt_votes = votes 
 
-#          # 6d: Print the county results to the terminal.
-
-#          # 6e: Save the county votes to a text file.
-
-#          # 6f: Write an if statement to determine the winning county and get its vote count.
-
-
-#     # 7: Print the county with the largest turnout to the terminal.
-
-
-#     # 8: Save the county with the largest turnout to a text file.
-
-
-#     # Save the final candidate vote count to the text file.
-#     for candidate_name in candidate_votes:
-
-#         # Retrieve vote count and percentage
-#         votes = candidate_votes.get(candidate_name)
-#         vote_percentage = float(votes) / float(total_votes) * 100
-#         candidate_results = (
-#             f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
-
-#         # Print each candidate's voter count and percentage to the
-#         # terminal.
-#         print(candidate_results)
-#         #  Save the candidate results to our text file.
-#         txt_file.write(candidate_results)
-
-#         # Determine winning vote count, winning percentage, and candidate.
-#         if (votes > winning_count) and (vote_percentage > winning_percentage):
-#             winning_count = votes
-#             winning_candidate = candidate_name
-#             winning_percentage = vote_percentage
-
-#     # Print the winning candidate (to terminal)
-#     winning_candidate_summary = (
-#         f"-------------------------\n"
-#         f"Winner: {winning_candidate}\n"
-#         f"Winning Vote Count: {winning_count:,}\n"
-#         f"Winning Percentage: {winning_percentage:.1f}%\n"
-#         f"-------------------------\n")
-#     print(winning_candidate_summary)
-
-#     # Save the winning candidate's name to the text file
-#     txt_file.write(winning_candidate_summary)
+    #Print candidate results to Terminal + append TXT
+    win_cddt_txt = (F"CANDIDATE RESULT: {win_cddt} won with {win_cddt_px:.1f}% of the votes, {win_cddt_votes} people voted for them.\n\n")
+    print(win_cddt_txt)
+    output_txt.write(win_cddt_txt)
