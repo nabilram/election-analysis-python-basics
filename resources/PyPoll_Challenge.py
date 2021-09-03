@@ -35,7 +35,7 @@ with open("resources/election_results.csv") as elect_r:
 
         if cddt_name not in cddt_list:
             cddt_list.append(cddt_name)
-            per_cddt_votes[cddt_name] = 0
+            per_cddt_votes[cddt_name] = 1
         else:
             per_cddt_votes[cddt_name] = per_cddt_votes[cddt_name] + 1
 
@@ -44,23 +44,18 @@ with open("resources/election_results.csv") as elect_r:
 
         if cnty_name not in cnty_list:
             cnty_list.append(cnty_name)
-            per_cnty_votes[cnty_name] = 0
+            per_cnty_votes[cnty_name] = 1
         else:
             per_cnty_votes[cnty_name] = per_cnty_votes[cnty_name] + 1
 
 # Create output TXT file using f and open + file path and print and TXT election metrics
 with open("resources/analysis/election_analysis.txt","w") as output_txt:
-    elect_results = (
-        f"\nOVERALL ELECTION METRICS\n"
-        f"-----------------------------------\n\n"
-        f"TOTAL VOTES: {all_votes}\n"
-        f"PER COUNTY VOTE: {per_cnty_votes}\n"
-        f"PER CANDIDATE VOTE: {per_cddt_votes} \n\n")
+    elect_results = (f"\nOVERALL TOTAL VOTES: {all_votes}\n\n")
     print(elect_results, end = "")
     output_txt.write(elect_results)
 
-    # COUNTY RESULTS - county names, raw vote count, calculate turnout %, print to terminal, append TXT
-    # Set header
+    # COUNTY RESULTS: names, raw vote count, calculate turnout %, print to terminal, append TXT
+    # Set header string
     header2 = (f"COUNTY RESULTS SUMMARY\n-----------------------------------\n")
     print(header2)
     output_txt.write(header2)
@@ -84,8 +79,8 @@ with open("resources/analysis/election_analysis.txt","w") as output_txt:
     print(win_cnty_txt)
     output_txt.write(win_cnty_txt)
 
-    # CANDIDATE RESULTS - candidate names, raw vote count, calculate turnout %, print to terminal, append TXT
-    # Set header
+    # CANDIDATE RESULTS: raw vote count, calculate turnout %, print to terminal, append TXT
+    # Set header string
     header3 = (f"\nCANDIDATE RESULTS SUMMARY\n-----------------------------------\n")
     print(header3)
     output_txt.write(header3)
