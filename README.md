@@ -20,7 +20,7 @@
 * A total of 369,711 voters were casted from the 3 counties
 
 ### County Audit Sumary
-* Jefferson had 10.5% of all votes (38,855)
+* Jefferson had 10.5% of all votes (38,855)rea
 * Denver had 82.8% of all votes (306,055)
 * Arapahoe had 6.7% of all votes (24,801)
 * COUNTY RESULT: Denver had the the biggest voter turnout at 82.8% with 306055 voters
