@@ -26,17 +26,15 @@ candidate_votes = {85213, 272892, 11606}
 c_list = {"Jefferson" : 38855, 
           "Denver": 306055,
           "Arapahoe": 24801}
+  
+# Track the winning candidate, vote count and percentage
+winning_candidate = "Diana Degette"
+winning_count = 272892
+winning_percentage = 272801/369711
 
-
-
-    
-    
-# # Track the winning candidate, vote count and percentage
-# winning_candidate = ""
-# winning_count = 0
-# winning_percentage = 0
-
-# # 2: Track the largest county and county voter turnout.
+# 2: Track the largest county and county voter turnout.
+largest_county = "Denver"
+most_voters_county = 306055
 
 
 # # Read the csv and convert it into a list of dictionaries
