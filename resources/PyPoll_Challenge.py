@@ -3,7 +3,7 @@
 # Load modules and packages.
 import csv
 
-# Initialize INPUTS: votes integer, candidate + county lists, votes per candidate library.
+# Initialize INPUTS: votes integer, candidate + county lists, votes per candidate/country libraries.
 all_votes = 0
 cddt_list = [] 
 cnty_list = []
@@ -18,7 +18,7 @@ win_cddt_raw = 0
 win_cddt_px = 0
 win_cnty_px = 0 
 
-#Read CSV file using file path + with open + variable; read header; assign to data fram
+#Read CSV file using file path + with open + variable; read header; assign to data frame
 with open("resources/election_results.csv") as elect_r:
     file1 = csv.reader(elect_r, delimiter = ",")
     header = next(file1)
@@ -97,9 +97,9 @@ with open("resources/analysis/election_analysis.txt","w") as output_txt:
         if (win_cddt_px < now_ratio and win_cddt_raw < votes):
             win_cddt_px = now_ratio
             win_cddt = each_cddt
-            win_cddt_votes = votes 
+            win_cddt_raw = votes 
 
     #Print candidate results to Terminal + append TXT
-    win_cddt_txt = (F"CANDIDATE RESULT: {win_cddt} won with {win_cddt_px:.1f}% of the votes, {win_cddt_votes} people voted for them.\n\n")
+    win_cddt_txt = (F"CANDIDATE RESULT: {win_cddt} won with {win_cddt_px:.1f}% of the votes, {win_cddt_raw} people voted for them.\n\n")
     print(win_cddt_txt)
     output_txt.write(win_cddt_txt)
