@@ -124,5 +124,3 @@ for county_voters in voting_data:
 
 import csv
 import os
-
-with open(file_to_load)
