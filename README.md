@@ -3,6 +3,7 @@
 ## Overview of Election Audit
 * Client is Colorado State and is asking for an automated election audit using Python
 * Deliverables outputs include:
+    * Overall voter count metric: number of total voters
     * Metrics on winning candidate: raw votes and percentage
     * Metrics on voting count per county: raw votes and percentage
     * Outputs requested in .py format (for terminal applicability) and .txt (for plain text)
