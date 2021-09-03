@@ -20,7 +20,7 @@
 ##----------
 ##Membership Operaters -- in, not in
 
-# counties = ["Arapahoe","Denver","Jefferson"]
+counties = ["Arapahoe","Denver","Jefferson"]
 # if "El Paso" in counties:
 #     print("El Paso is in the list of counties.")
 # else:
@@ -62,13 +62,34 @@ counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
 # for county in counties_dict:
 #     print(county)
 # same as keys() - example
-for county in counties_dict.keys():
-    print(county)
+# for county in counties_dict.keys():
+#     print(county)
 
-# Way to get VALUES
-for voters in counties_dict.values():
-    print(voters)
+# # Way to get VALUES
+# for voters in counties_dict.values():
+#     print(voters)
 
-# Way to get BOTH KEYS AND VALUES
-for county, voters in counties_dict.items():
-    print(f"The county of {county} has {voters} registered voters.")
+# # Way to get BOTH KEYS AND VALUES
+# for county, voters in counties_dict.items():
+#     print(f"The county of {county} has {voters} registered voters.")
+
+# Pull Dictionaries out of list of dictionaries using for loops 
+voting_data = [{"county":"Arapahoe", "registered_voters": 422829},
+                {"county":"Denver", "registered_voters": 463353},
+                {"county":"Jefferson", "registered_voters": 432438}]
+
+for county_d in voting_data:
+    print(county_d)
+# try doing the same using RANGE
+
+for i in range(len(voting_data)):
+    print (i)
+
+# using nested for loop just to get values or keys or both
+for county_dict in voting_data:
+    for value in county_dict.values():
+        print(value)
+
+#getting the values of specific keys
+for county_dict in voting_data:
+    print(county_dict["registered_voters"])
